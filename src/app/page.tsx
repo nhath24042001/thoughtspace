@@ -2,24 +2,20 @@
 
 import { useState } from "react";
 import { AnimatePresence } from "framer-motion";
-import BlogCard from "@/components/shared/BlogCard";
 import { Button } from "@/components/ui/button";
 
-const categories = ["All", "Tech", "Life", "Design"];
+import BlogCard from "@/components/shared/BlogCard";
+import { BLOG_CATEGORIES, BLOG_LIST } from "@/constants/blog";
 
-const blogs = [
-  { id: 1, title: "Intro to React", category: "Tech" },
-  { id: 2, title: "Work-Life Balance", category: "Life" },
-  { id: 3, title: "Design Systems", category: "Design" },
-  { id: 4, title: "Server Actions in Next.js 15", category: "Tech" },
-  { id: 5, title: "Digital Minimalism", category: "Life" },
-];
 
 export default function Home() {
   const [active, setActive] = useState("All");
 
-  const filtered =
-    active === "All" ? blogs : blogs.filter((b) => b.category === active);
+  const categories = ["All", ...BLOG_CATEGORIES.map((cat) => cat.name)];
+  const filtered = BLOG_LIST.filter((blog) => {
+    if (active === "All") return true;
+    return blog.category.some((cat) => cat.name === active);
+  });
 
   return (
     <main className="max-w-6xl mx-auto px-4 py-10">
