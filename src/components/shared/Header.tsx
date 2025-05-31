@@ -59,14 +59,13 @@ export const Header = () => {
             </Button>
           )}
 
-          <Link href="/auth/login">
-            <Button variant="ghost" className="text-sm cursor-pointer">
-              Login
-            </Button>
-          </Link>
-          <Link href="/auth/register">
-            <Button className="text-sm  cursor-pointer">Sign Up</Button>
-          </Link>
+          <Button variant='ghost' className="text-sm cursor-pointer" asChild>
+            <Link href='/auth/login'>Login</Link>
+          </Button>
+
+          <Button className="text-sm cursor-pointer" asChild>
+            <Link href="/auth/register">Sign Up</Link>
+          </Button>
         </div>
       </div>
     </header>
