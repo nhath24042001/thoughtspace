@@ -13,6 +13,7 @@ import { Input } from "@/components/ui/input";
 export default function Home() {
   const [active, setActive] = useState("All");
   const [search, setSearch] = useState("");
+  const [visibleCount, setVisibleCount] = useState(6);
   const [filteredBlogs, setFilteredBlogs] = useState(BLOG_LIST);
 
   const categories = ["All", ...BLOG_CATEGORIES.map((cat) => cat.name)];
@@ -31,7 +32,6 @@ export default function Home() {
     },
     []
   );
-
   const debouncedFilter = useMemo(() => debounce(filterBlogs, 300), [filterBlogs]);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -42,6 +42,7 @@ export default function Home() {
 
   useEffect(() => {
     filterBlogs(search, active);
+    setVisibleCount(6);
   }, [active]);
 
   useEffect(() => {
@@ -83,11 +84,17 @@ export default function Home() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 min-h-[200px]">
           <AnimatePresence mode="wait">
-            {filteredBlogs.map((blog) => (
+            {filteredBlogs.slice(0, visibleCount).map((blog) => (
               <BlogCard key={blog.id} blog={blog} />
             ))}
           </AnimatePresence>
         </div>
+
+        {visibleCount < filteredBlogs.length && (
+          <div className="mt-6 text-center">
+            <Button onClick={() => setVisibleCount((prev) => prev + 6)}>Load More</Button>
+          </div>
+        )}
       </div>
     </main>
   );
