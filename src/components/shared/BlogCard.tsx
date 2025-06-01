@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import { IBlog } from "@/types/blog";
 import { formatDate } from "@/utils/format";
 import { getCategoryColor } from "@/utils/style";
+import Link from "next/link";
 
 export default function BlogCard({ blog }: { blog: IBlog }) {
   return (
@@ -43,17 +44,23 @@ export default function BlogCard({ blog }: { blog: IBlog }) {
           {blog.description}
         </p>
 
-        <div className="flex items-center gap-3 mt-2">
-          <Image
-            src={blog.author.image ?? "/default-avatar.png"}
-            alt="author-avatar"
-            width={32}
-            height={32}
-            className="h-8 w-8 rounded-full object-cover"
-          />
-          <div className="text-xs text-black dark:text-gray-400">
-            <span className="text-sm font-medium">{blog.author.name}</span>
+        <div className="flex items-center justify-between mt-2">
+          <div className="flex items-center gap-2">
+            <Image
+              src={blog.author.image ?? "/default-avatar.png"}
+              alt="author-avatar"
+              width={32}
+              height={32}
+              className="h-8 w-8 rounded-full object-cover"
+            />
+            <div className="text-xs text-black dark:text-gray-400">
+              <span className="text-sm font-medium">{blog.author.name}</span>
+            </div>
           </div>
+
+          <Link href={`/blog/${blog.slug}`}>
+            <span className="text-black font-medium text-sm cursor-pointer">Read more</span>
+          </Link>
         </div>
       </div>
     </motion.div>

@@ -77,7 +77,7 @@ export default function Home() {
               value={search}
               onChange={handleInputChange}
               autoComplete="off"
-              className="max-w-sm w-100"
+              className="bg-white max-w-sm w-100"
             />
           </div>
         </div>
