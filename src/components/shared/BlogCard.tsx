@@ -15,7 +15,7 @@ export default function BlogCard({ blog }: { blog: IBlog }) {
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -10 }}
       transition={{ duration: 0.3 }}
-      className="border rounded-xl shadow-sm dark:border-gray-700 bg-white dark:bg-gray-900 hover:shadow-md transition-shadow duration-300"
+      className="border rounded-xl shadow-sm dark:border-gray-700 bg-white dark:bg-zinc-950 hover:shadow-md transition-shadow duration-300"
     >
       <div className="relative w-full h-48 overflow-hidden rounded-t-xl group">
         <Image

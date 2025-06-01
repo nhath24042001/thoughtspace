@@ -15,7 +15,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className="bg-white text-black dark:bg-gray-950 dark:text-white transition-colors duration-300 ease-in-out">
+      <body className="text-black dark:text-white transition-colors duration-300 ease-in-out">
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <Header />
           {children}

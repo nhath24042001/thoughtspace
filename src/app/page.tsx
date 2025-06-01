@@ -52,7 +52,7 @@ export default function Home() {
   }, [debouncedFilter]);
 
   return (
-    <main className="bg-muted">
+    <main className="bg-muted dark:bg-zinc-950 text-gray-800 dark:text-white ">
       <IntroSection />
       <div className="max-w-6xl mx-auto px-4 py-10">
         <div className="flex flex-wrap justify-between items-center gap-2 mb-8">

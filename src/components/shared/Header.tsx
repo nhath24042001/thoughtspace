@@ -17,7 +17,7 @@ export const Header = () => {
     { label: "About", href: "/about" },
   ];
   return (
-    <header className="sticky top-0 z-50 bg-white">
+    <header className="sticky top-0 z-50 bg-white dark:bg-zinc-950">
       <div className="container mx-auto border-b-1 flex justify-between items-center py-4 px-4">
 
         <Link href="/" className="text-xl font-bold tracking-tight lowercase">
@@ -28,7 +28,6 @@ export const Header = () => {
             <Link
               key={href}
               href={href}
-              className="hover:text-blue-600 transition-colors"
             >
               {label}
             </Link>
