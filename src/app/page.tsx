@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 
 import BlogCard from "@/components/shared/BlogCard";
 import { BLOG_CATEGORIES, BLOG_LIST } from "@/constants/blog";
+import IntroSection from "@/components/shared/IntroSection";
 
 
 export default function Home() {
@@ -19,6 +20,8 @@ export default function Home() {
 
   return (
     <main className="max-w-6xl mx-auto px-4 py-10">
+      <IntroSection />
+
       <div className="flex flex-wrap gap-2 mb-8">
         {categories.map((cat) => (
           <Button

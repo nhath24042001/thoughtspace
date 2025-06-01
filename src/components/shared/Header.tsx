@@ -1,11 +1,10 @@
 "use client";
 
 import { useTheme } from "next-themes";
+import { useEffect, useState } from "react";
 import { Button } from "../ui/button";
 import { Moon, Sun } from "lucide-react";
-import { useEffect, useState } from "react";
 import Link from "next/link";
-import Image from "next/image";
 
 export const Header = () => {
   const { setTheme, resolvedTheme } = useTheme();
@@ -18,16 +17,12 @@ export const Header = () => {
     { label: "About", href: "/about" },
   ];
   return (
-    <header className="sticky top-0 z-50 bg-white dark:bg-gray-900 border-b">
-      <div className="container mx-auto px-4 py-3 flex items-center justify-between">
-        <Link
-          href="/"
-          className="flex items-center gap-2 text-lg font-bold text-blue-600"
-        >
-          <Image src='/thoughts.png' width={40} height={40} alt="logo" />
-          Thought Space
-        </Link>
+    <header>
+      <div className="container mx-auto border-b-1 flex justify-between items-center py-4 px-4">
 
+        <Link href="/" className="text-xl font-bold tracking-tight lowercase">
+          ThoughtSpace
+        </Link>
         <nav className="hidden md:flex gap-6 text-sm font-medium">
           {navItems.map(({ label, href }) => (
             <Link
@@ -68,6 +63,6 @@ export const Header = () => {
           </Button>
         </div>
       </div>
-    </header>
+    </header >
   );
 };
