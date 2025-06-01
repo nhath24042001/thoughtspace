@@ -5,15 +5,17 @@ export const BLOG_LIST: IBlog[] = [
     id: 1,
     title: "Intro to React",
     image: "https://images.unsplash.com/photo-1556742044-3c52d6e88c62?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDF8MHxzZWFyY2h8MXx8dGVjaHxlbnwwfHwwfHx8MA%3D%3D",
-    category: [{ id: 1, name: "Tech" }],
+    category: { id: 1, name: "Tech" },
     description: 'A beginner\'s guide to React',
     content:
       "Learn the basics of React, a popular JavaScript library for building user interfaces.",
     author: {
       id: 1,
       name: "John Doe",
+      image: "https://images.unsplash.com/photo-1522556189639-b150ed9c4330?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDB8fHBlb3BsZXxlbnwwfHwwfHx8MA%3D%3D"
     },
     slug: "intro-to-react",
+    readTime: '5 min',
     isPublished: true,
     isFeatured: true,
     tags: ["React", "JavaScript", "Frontend"],
@@ -28,17 +30,19 @@ export const BLOG_LIST: IBlog[] = [
     id: 2,
     title: "Work-Life Balance",
     image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fHRlY2h8ZW58MHx8MHx8fDA%3D",
-    category: [{ id: 2, name: "Life" }],
+    category: { id: 2, name: "Life" },
     description: "Tips and strategies for maintaining a healthy work-life balance.",
     content:
       "Tips and strategies for maintaining a healthy work-life balance in today's fast-paced world.",
     author: {
       id: 2,
       name: "Jane Smith",
+      image: 'https://plus.unsplash.com/premium_photo-1688739352540-a75b102d8551?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NzV8fHBlb3BsZXxlbnwwfHwwfHx8MA%3D%3D'
     },
     slug: "work-life-balance",
     isPublished: true,
     isFeatured: false,
+    readTime: '3 min',
     tags: ["Work-Life Balance", "Productivity", "Wellness"],
     metaTitle: "Work-Life Balance - Tips and Strategies",
     metaDescription:

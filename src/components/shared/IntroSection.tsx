@@ -2,12 +2,12 @@ import Image from "next/image"
 
 export default function IntroSection() {
     return (
-        <section className="text-center py-12 px-4">
+        <section className="bg-white dark:bg-gray-900  text-center py-12 px-4">
             <div className="flex justify-center">
                 <Image src='/avatar.jpeg' width='100' height='100' className="rounded-full object-cover" alt="avatar_img" />
             </div>
 
-            <h2 className="mt-4 text-3xl font-bold">Nhat Huy</h2>
+            <h2 className="mt-4 text-4xl font-bold">Nhat Huy</h2>
             <p className="mt-2 text-gray-500">Software Engineer</p>
 
             <p className="mt-4 text-gray-600 max-w-xl mx-auto">

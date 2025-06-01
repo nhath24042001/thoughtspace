@@ -3,12 +3,13 @@ export interface IBlog {
     title: string;
     description: string;
     image: string;
-    category: IBlogCategory[];
+    category: IBlogCategory;
     content: string;
     author: IAuthor;
     slug: string;
     isPublished: boolean;
     isFeatured: boolean;
+    readTime?: string;
     tags: string[];
     metaTitle?: string;
     metaDescription?: string;
