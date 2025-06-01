@@ -27,15 +27,15 @@ export default function BlogCard({ blog }: { blog: IBlog }) {
       </div>
 
       <div className="p-4 flex flex-col gap-3">
-        <div className="flex items-center text-xs text-gray-500 dark:text-gray-400 gap-1">
-          <span className={`font-medium ${getCategoryColor(blog.category.name)}`}>
+        <div className="flex items-center justify-between">
+          <span className={`font-medium text-sm gap-1 px-2 py-1 rounded w-fit ${getCategoryColor(blog.category.name)}`}>
             {blog.category.name}
           </span>
-          <span className="mx-1">•</span>
-          <span>{blog.readTime}</span>
+
+          <span className="text-sm text-gray-500 font-medium">{formatDate(blog.createdAt)}</span>
         </div>
 
-        <h3 className="text-lg font-semibold text-gray-900 dark:text-white leading-snug">
+        <h3 className="text-lg font-semibold text-gray-900 dark:text-white leading-snug line-clamp-1">
           {blog.title}
         </h3>
 
@@ -51,10 +51,8 @@ export default function BlogCard({ blog }: { blog: IBlog }) {
             height={32}
             className="h-8 w-8 rounded-full object-cover"
           />
-          <div className="text-xs text-gray-500 dark:text-gray-400">
-            <span>{blog.author.name}</span>
-            <span className="mx-1">•</span>
-            <span>{formatDate(blog.createdAt)}</span>
+          <div className="text-xs text-black dark:text-gray-400">
+            <span className="text-sm font-medium">{blog.author.name}</span>
           </div>
         </div>
       </div>
