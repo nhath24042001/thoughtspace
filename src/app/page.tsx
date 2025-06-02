@@ -13,6 +13,7 @@ import { Input } from "@/components/ui/input";
 export default function Home() {
   const [active, setActive] = useState("All");
   const [search, setSearch] = useState("");
+  const [loading, setLoading] = useState(false);
   const [visibleCount, setVisibleCount] = useState(6);
   const [filteredBlogs, setFilteredBlogs] = useState(BLOG_LIST);
 
@@ -20,7 +21,9 @@ export default function Home() {
 
   const filterBlogs = useCallback(
     (searchValue: string, category: string) => {
+      setLoading(true);
       const lower = searchValue.toLowerCase();
+
       const filtered = BLOG_LIST.filter((blog) => {
         const matchesCategory = category === "All" || blog.category.name === category;
         const matchesSearch =
@@ -28,7 +31,11 @@ export default function Home() {
           blog.description.toLowerCase().includes(lower);
         return matchesCategory && matchesSearch;
       });
-      setFilteredBlogs(filtered);
+
+      setTimeout(() => {
+        setFilteredBlogs(filtered);
+        setLoading(false);
+      }, 1000);
     },
     []
   );
@@ -83,11 +90,21 @@ export default function Home() {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 min-h-[200px]">
-          <AnimatePresence mode="wait">
-            {filteredBlogs.slice(0, visibleCount).map((blog) => (
-              <BlogCard key={blog.id} blog={blog} />
-            ))}
-          </AnimatePresence>
+          {loading ? (
+            <div className="col-span-3 flex justify-center items-center h-[200px]">
+              <span className="animate-spin w-8 h-8 border-4 border-blue-500 border-t-transparent rounded-full" />
+            </div>
+          ) : filteredBlogs.length === 0 ? (
+            <div className="col-span-3 text-center text-gray-500 dark:text-gray-400">
+              No blogs found.
+            </div>
+          ) : (
+            <AnimatePresence mode="wait">
+              {filteredBlogs.slice(0, visibleCount).map((blog) => (
+                <BlogCard key={blog.id} blog={blog} />
+              ))}
+            </AnimatePresence>
+          )}
         </div>
 
         {visibleCount < filteredBlogs.length && (
