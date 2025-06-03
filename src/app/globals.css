@@ -1,5 +1,6 @@
 @import "tailwindcss";
 @import "tw-animate-css";
+@import 'prism-themes/themes/prism-vsc-dark-plus.css';
 
 @custom-variant dark (&:is(.dark *));
 
@@ -119,4 +120,14 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+pre {
+  padding: 1rem;
+  border-radius: 0.5rem;
+  overflow-x: auto;
 }
