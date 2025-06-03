@@ -57,7 +57,7 @@ export default function Home() {
   useEffect(() => {
     filterBlogs(search, active);
     setVisibleCount(6);
-  }, [active]);
+  }, [active, filterBlogs, search]);
 
   useEffect(() => {
     return () => {

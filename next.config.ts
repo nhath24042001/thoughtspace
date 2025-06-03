@@ -1,5 +1,5 @@
 import type { NextConfig } from "next";
-import { withContentlayer } from 'next-contentlayer';
+import { withContentlayer } from "next-contentlayer";
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
@@ -12,10 +12,20 @@ const nextConfig: NextConfig = {
         protocol: "https",
         hostname: "**.unsplash.com",
       },
-
+      {
+        protocol: "https",
+        hostname: "**.permit.io",
+      },
+      {
+        protocol: "https",
+        hostname: "cloud.z.com",
+      },
+      {
+        protocol: "https",
+        hostname: "**.medium.com",
+      },
     ],
   },
 };
 
 export default withContentlayer(nextConfig);
-

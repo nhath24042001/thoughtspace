@@ -1,0 +1,30 @@
+---
+title: "Getting Started with SSH: Secure Remote Access"
+image: "https://cloud.z.com/vn/wp-content/uploads/2023/03/image3-5.png"
+description: "A beginner-friendly guide to SSH and how to use it for secure remote connections."
+slug: "ssh-guide"
+date: "2025-06-03"
+author:
+  name: "Nhat Huy"
+  title: "Frontend Developer"
+  avatar: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YXZhdGFyfGVufDB8fDB8fHww"
+  url: "https://zacharysmith.dev"
+tags: ["ssh", "linux", "security", "networking"]
+excerpt: "SSH lets you connect securely to remote machines. Learn how it works and how to use it."
+readingTime: 4 min
+---
+
+## What is SSH?
+
+SSH (Secure Shell) is a protocol that allows encrypted communication between two systems over an insecure network.
+
+### Common Use Cases
+
+- Remote login to a server
+- Git operations with SSH keys
+- Secure file transfer (SCP, SFTP)
+
+### Generate SSH Key
+
+```bash
+ssh-keygen -t ed25519 -C "your_email@example.com"

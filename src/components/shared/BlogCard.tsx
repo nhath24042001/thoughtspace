@@ -2,11 +2,16 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 import { IBlog } from "@/types/blog";
 import { formatDate } from "@/utils/format";
 import { getCategoryColor } from "@/utils/style";
-import Link from "next/link";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 
 export default function BlogCard({ blog }: { blog: IBlog }) {
   return (
@@ -29,16 +34,28 @@ export default function BlogCard({ blog }: { blog: IBlog }) {
 
       <div className="p-4 flex flex-col gap-3">
         <div className="flex items-center justify-between">
-          <span className={`font-medium text-sm gap-1 px-2 py-1 rounded w-fit ${getCategoryColor(blog.category.name)}`}>
+          <span
+            className={`font-medium text-sm gap-1 px-2 py-1 rounded w-fit ${getCategoryColor(
+              blog.category.name
+            )}`}
+          >
             {blog.category.name}
           </span>
 
-          <span className="text-sm text-gray-500 font-medium">{formatDate(blog.createdAt)}</span>
+          <span className="text-sm text-gray-500 font-medium">
+            {formatDate(blog.createdAt)}
+          </span>
         </div>
-
-        <h3 className="text-lg font-semibold text-gray-900 dark:text-white leading-snug line-clamp-1">
-          {blog.title}
-        </h3>
+        <Tooltip>
+          <TooltipTrigger asChild>
+            <h3 className="text-lg font-semibold text-gray-900 dark:text-white leading-snug line-clamp-1 cursor-default">
+              {blog.title}
+            </h3>
+          </TooltipTrigger>
+          <TooltipContent className="max-w-sm">
+            <p>{blog.title}</p>
+          </TooltipContent>
+        </Tooltip>
 
         <p className="text-sm text-gray-600 dark:text-gray-300 h-10 leading-relaxed line-clamp-2">
           {blog.description}
@@ -59,7 +76,9 @@ export default function BlogCard({ blog }: { blog: IBlog }) {
           </div>
 
           <Link href={`/blog/${blog.slug}`}>
-            <span className="text-black font-medium text-sm cursor-pointer">Read more</span>
+            <span className="text-black font-medium text-sm cursor-pointer">
+              Read more
+            </span>
           </Link>
         </div>
       </div>
