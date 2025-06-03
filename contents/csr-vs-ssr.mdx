@@ -1,0 +1,47 @@
+---
+title: "Client Components vs Server Components in Next.js 13+"
+image: "https://www.zen8labs.com/wp-content/uploads/2024/06/zen8labs-Nextjs_Client-Components-V-Server-Component-1.png"
+description: "Understand the key differences between Client and Server Components in Next.js and when to use each effectively."
+slug: "csr-vs-ssr"
+date: "2025-06-03"
+tags: ["Next.js", "Server Components", "Client Components", "React", "App Router"]
+author: 
+  name: "Nhat Huy"
+  title: "Frontend Developer"
+  avatar: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YXZhdGFyfGVufDB8fDB8fHww"
+  url: "https://zacharysmith.dev"
+excerpt: "Authentication is the first line of defense for any web application. Learn how to model it securely."
+readingTime: 10 min
+---
+
+# Client Components vs Server Components in Next.js 13+
+
+With the release of **Next.js 13** and the introduction of the **App Router**, the concepts of **Client Components** and **Server Components** have become central to building performant and scalable web applications. This article explores their differences, use cases, and how to balance both effectively in a Next.js project.
+
+---
+
+## ⚙️ What are Server Components?
+
+**Server Components** are React components rendered entirely on the server. They **do not include JavaScript** in the client bundle, meaning:
+
+- They load faster (no client-side JS execution)
+- Sensitive logic remains secure (not exposed in the browser)
+- Better SEO support
+- Direct access to secure backends and databases
+
+```tsx
+// app/page.tsx
+export default async function HomePage() {
+  const posts = await getPostsFromDB(); // Server-side only
+
+  return (
+    <div>
+      <h1>Latest Posts</h1>
+      <ul>
+        {posts.map(post => (
+          <li key={post.id}>{post.title}</li>
+        ))}
+      </ul>
+    </div>
+  );
+}

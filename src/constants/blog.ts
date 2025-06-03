@@ -107,7 +107,117 @@ export const BLOG_LIST: IBlog[] = [
     metaTitle: "Healthy Living - Tips for a Better Lifestyle",
     metaDescription:
       "Explore tips for maintaining a healthy lifestyle, including nutrition and exercise.",
-    metaKeywords: ["Health", "Wellness", "Lifestyle"],
+    metaKeywords: ["event loop", "javascript", "async", "microtasks"],
+    createdAt: "2023-10-04T00:00:00Z",
+    updatedAt: "2023-10-04T00:00:00Z",
+  },
+  {
+    id: 5,
+    title: "Client Components vs Server Components in Next.js 13+",
+    image:
+      "https://www.zen8labs.com/wp-content/uploads/2024/06/zen8labs-Nextjs_Client-Components-V-Server-Component-1.png",
+    category: { id: 4, name: "NextJS" },
+    description:
+      "Understand the key differences between Client and Server Components in Next.js and when to use each effectively.",
+    content:
+      "Discover tips and strategies for maintaining a healthy lifestyle, including nutrition and exercise.",
+    author: {
+      id: 4,
+      name: "Bob Brown",
+      image:
+        "https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDB8fHBlb3BsZXxlbnwwfHwwfHx8MA%3D%3D",
+    },
+    slug: "csr-vs-ssr",
+    isPublished: true,
+    isFeatured: false,
+    readTime: "10 min",
+    tags: ["event loop", "javascript", "async", "microtasks"],
+    metaTitle: "Healthy Living - Tips for a Better Lifestyle",
+    metaDescription:
+      "Explore tips for maintaining a healthy lifestyle, including nutrition and exercise.",
+    metaKeywords: ["event loop", "javascript", "async", "microtasks"],
+    createdAt: "2023-10-04T00:00:00Z",
+    updatedAt: "2023-10-04T00:00:00Z",
+  },
+  {
+    id: 6,
+    title: "Angular vs Next.js: A Comprehensive Compariso",
+    image:
+      "https://www.tatvasoft.com/outsourcing/wp-content/uploads/2024/04/Next.js-vs-Angular-Choose-the-Right-Framework.jpg",
+    category: { id: 4, name: "Angular" },
+    description:
+      "Explore the key differences between Angular and Next.js, their strengths, and which framework fits your project needs.",
+    content:
+      "Discover tips and strategies for maintaining a healthy lifestyle, including nutrition and exercise.",
+    author: {
+      id: 4,
+      name: "Bob Brown",
+      image:
+        "https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDB8fHBlb3BsZXxlbnwwfHwwfHx8MA%3D%3D",
+    },
+    slug: "angular-vs-nextjs",
+    isPublished: true,
+    isFeatured: false,
+    readTime: "15 min",
+    tags: [
+      "Angular",
+      "Next.js",
+      "Frontend Frameworks",
+      "React",
+      "Web Development",
+    ],
+    metaTitle: "Healthy Living - Tips for a Better Lifestyle",
+    metaDescription:
+      "Explore tips for maintaining a healthy lifestyle, including nutrition and exercise.",
+    metaKeywords: [
+      "Angular",
+      "Next.js",
+      "Frontend Frameworks",
+      "React",
+      "Web Development",
+    ],
+    createdAt: "2023-10-04T00:00:00Z",
+    updatedAt: "2023-10-04T00:00:00Z",
+  },
+  {
+    id: 7,
+    title: "Next.js Data Fetching Strategies Explained",
+    image:
+      "https://www.petermekhaeil.com/images/uploads/nextjs-static-rendering-1.gif",
+    category: { id: 4, name: "NextJS" },
+    description:
+      "Learn about different data fetching methods in Next.js including Static Generation, Server-side Rendering, and Client-side Fetching.",
+    content:
+      "Discover tips and strategies for maintaining a healthy lifestyle, including nutrition and exercise.",
+    author: {
+      id: 4,
+      name: "Bob Brown",
+      image:
+        "https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDB8fHBlb3BsZXxlbnwwfHwwfHx8MA%3D%3D",
+    },
+    slug: "nextjs-data-fetching",
+    isPublished: true,
+    isFeatured: false,
+    readTime: "15 min",
+    tags: [
+      "Next.js",
+      "Data Fetching",
+      "SSR",
+      "SSG",
+      "React",
+      "Web Development",
+    ],
+    metaTitle: "Healthy Living - Tips for a Better Lifestyle",
+    metaDescription:
+      "Explore tips for maintaining a healthy lifestyle, including nutrition and exercise.",
+    metaKeywords: [
+      "Next.js",
+      "Data Fetching",
+      "SSR",
+      "SSG",
+      "React",
+      "Web Development",
+    ],
     createdAt: "2023-10-04T00:00:00Z",
     updatedAt: "2023-10-04T00:00:00Z",
   },

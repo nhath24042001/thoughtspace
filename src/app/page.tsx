@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 "use client";
 
 import { useCallback, useEffect, useMemo, useState } from "react";
@@ -40,7 +41,7 @@ export default function Home() {
     setTimeout(() => {
       setFilteredBlogs(filtered);
       setLoading(false);
-    }, 300);
+    }, 1000);
   }, []);
 
   const debouncedFilter = useMemo(
@@ -57,7 +58,7 @@ export default function Home() {
   useEffect(() => {
     filterBlogs(search, active);
     setVisibleCount(6);
-  }, [active, filterBlogs, search]);
+  }, [active]);
 
   useEffect(() => {
     return () => {
@@ -116,7 +117,10 @@ export default function Home() {
 
         {visibleCount < filteredBlogs.length && (
           <div className="mt-6 text-center">
-            <Button onClick={() => setVisibleCount((prev) => prev + 6)}>
+            <Button
+              className="cursor-pointer"
+              onClick={() => setVisibleCount((prev) => prev + 6)}
+            >
               Load More
             </Button>
           </div>

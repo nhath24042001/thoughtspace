@@ -24,6 +24,18 @@ const nextConfig: NextConfig = {
         protocol: "https",
         hostname: "**.medium.com",
       },
+      {
+        protocol: "https",
+        hostname: "**.zen8labs.com",
+      },
+      {
+        protocol: "https",
+        hostname: "**.tatvasoft.com",
+      },
+      {
+        protocol: "https",
+        hostname: "**.petermekhaeil.com",
+      },
     ],
   },
 };
