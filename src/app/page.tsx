@@ -4,6 +4,7 @@ import { useCallback, useEffect, useMemo, useState } from "react";
 import { AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { debounce } from "lodash-es";
+import Fuse from "fuse.js";
 
 import BlogCard from "@/components/shared/BlogCard";
 import { BLOG_CATEGORIES, BLOG_LIST } from "@/constants/blog";
@@ -19,27 +20,33 @@ export default function Home() {
 
   const categories = ["All", ...BLOG_CATEGORIES.map((cat) => cat.name)];
 
-  const filterBlogs = useCallback(
-    (searchValue: string, category: string) => {
-      setLoading(true);
-      const lower = searchValue.toLowerCase();
+  const filterBlogs = useCallback((searchValue: string, category: string) => {
+    setLoading(true);
 
-      const filtered = BLOG_LIST.filter((blog) => {
-        const matchesCategory = category === "All" || blog.category.name === category;
-        const matchesSearch =
-          blog.title.toLowerCase().includes(lower) ||
-          blog.description.toLowerCase().includes(lower);
-        return matchesCategory && matchesSearch;
+    let filtered = BLOG_LIST;
+    if (category !== "All") {
+      filtered = filtered.filter((blog) => blog.category.name === category);
+    }
+
+    if (searchValue.trim() !== "") {
+      const fuse = new Fuse(filtered, {
+        keys: ["title", "description", "tags", "author.name"],
+        threshold: 0.4,
       });
 
-      setTimeout(() => {
-        setFilteredBlogs(filtered);
-        setLoading(false);
-      }, 1000);
-    },
-    []
+      filtered = fuse.search(searchValue).map((result) => result.item);
+    }
+
+    setTimeout(() => {
+      setFilteredBlogs(filtered);
+      setLoading(false);
+    }, 300);
+  }, []);
+
+  const debouncedFilter = useMemo(
+    () => debounce(filterBlogs, 300),
+    [filterBlogs]
   );
-  const debouncedFilter = useMemo(() => debounce(filterBlogs, 300), [filterBlogs]);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
@@ -109,7 +116,9 @@ export default function Home() {
 
         {visibleCount < filteredBlogs.length && (
           <div className="mt-6 text-center">
-            <Button onClick={() => setVisibleCount((prev) => prev + 6)}>Load More</Button>
+            <Button onClick={() => setVisibleCount((prev) => prev + 6)}>
+              Load More
+            </Button>
           </div>
         )}
       </div>
