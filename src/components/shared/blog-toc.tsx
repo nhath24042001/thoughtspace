@@ -1,16 +1,16 @@
-"use client";
-import { useEffect, useState } from "react";
-import { Link } from "react-scroll";
+'use client';
+import { useEffect, useState } from 'react';
+import { Link } from 'react-scroll';
 
 export default function BlogTOC() {
   const [headings, setHeadings] = useState<HTMLHeadingElement[]>([]);
 
   useEffect(() => {
-    const contentRoot = document.querySelector("#blog-content");
+    const contentRoot = document.querySelector('#blog-content');
     if (!contentRoot) return;
 
     const headingElements = Array.from(
-      contentRoot.querySelectorAll("h2, h3")
+      contentRoot.querySelectorAll('h2, h3'),
     ) as HTMLHeadingElement[];
 
     const processed = headingElements
@@ -20,8 +20,8 @@ export default function BlogTOC() {
           const generatedId =
             el.textContent
               ?.toLowerCase()
-              .replace(/\s+/g, "-")
-              .replace(/[^\w-]/g, "") || `heading-${i}`;
+              .replace(/\s+/g, '-')
+              .replace(/[^\w-]/g, '') || `heading-${i}`;
           el.id = generatedId;
         }
         return el;
@@ -32,19 +32,12 @@ export default function BlogTOC() {
 
   return (
     <aside className="sticky top-24 pb-4 max-w-xs">
-      <h3 className="text-sm font-semibold mb-4 text-gray-400 uppercase tracking-wide">
-        Contents
-      </h3>
+      <h3 className="text-sm font-semibold mb-4 text-gray-400 uppercase tracking-wide">Contents</h3>
       <ul className="space-y-2 text-sm">
         {headings.map((h) => {
-          const isH3 = h.tagName === "H3";
+          const isH3 = h.tagName === 'H3';
           return (
-            <li
-              key={h.id}
-              className={`transition-all ${
-                isH3 ? "pl-4 text-gray-600" : "pl-2"
-              }`}
-            >
+            <li key={h.id} className={`transition-all ${isH3 ? 'pl-4 text-gray-600' : 'pl-2'}`}>
               <Link
                 to={h.id}
                 spy={true}

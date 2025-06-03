@@ -1,37 +1,37 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-"use client";
+'use client';
 
-import { useCallback, useEffect, useMemo, useState } from "react";
-import { AnimatePresence } from "framer-motion";
-import { Button } from "@/components/ui/button";
-import { debounce } from "lodash-es";
-import Fuse from "fuse.js";
+import { useCallback, useEffect, useMemo, useState } from 'react';
+import { AnimatePresence } from 'framer-motion';
+import { Button } from '@/components/ui/button';
+import { debounce } from 'lodash-es';
+import Fuse from 'fuse.js';
 
-import BlogCard from "@/components/shared/BlogCard";
-import { BLOG_CATEGORIES, BLOG_LIST } from "@/constants/blog";
-import IntroSection from "@/components/shared/IntroSection";
-import { Input } from "@/components/ui/input";
+import BlogCard from '@/components/shared/BlogCard';
+import { BLOG_CATEGORIES, BLOG_LIST } from '@/constants/blog';
+import IntroSection from '@/components/shared/IntroSection';
+import { Input } from '@/components/ui/input';
 
 export default function Home() {
-  const [active, setActive] = useState("All");
-  const [search, setSearch] = useState("");
+  const [active, setActive] = useState('All');
+  const [search, setSearch] = useState('');
   const [loading, setLoading] = useState(false);
   const [visibleCount, setVisibleCount] = useState(6);
   const [filteredBlogs, setFilteredBlogs] = useState(BLOG_LIST);
 
-  const categories = ["All", ...BLOG_CATEGORIES.map((cat) => cat.name)];
+  const categories = ['All', ...BLOG_CATEGORIES.map((cat) => cat.name)];
 
   const filterBlogs = useCallback((searchValue: string, category: string) => {
     setLoading(true);
 
     let filtered = BLOG_LIST;
-    if (category !== "All") {
+    if (category !== 'All') {
       filtered = filtered.filter((blog) => blog.category.name === category);
     }
 
-    if (searchValue.trim() !== "") {
+    if (searchValue.trim() !== '') {
       const fuse = new Fuse(filtered, {
-        keys: ["title", "description", "tags", "author.name"],
+        keys: ['title', 'description', 'tags', 'author.name'],
         threshold: 0.4,
       });
 
@@ -44,10 +44,7 @@ export default function Home() {
     }, 1000);
   }, []);
 
-  const debouncedFilter = useMemo(
-    () => debounce(filterBlogs, 300),
-    [filterBlogs]
-  );
+  const debouncedFilter = useMemo(() => debounce(filterBlogs, 300), [filterBlogs]);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
@@ -75,7 +72,7 @@ export default function Home() {
             {categories.map((cat) => (
               <Button
                 key={cat}
-                variant={active === cat ? "default" : "outline"}
+                variant={active === cat ? 'default' : 'outline'}
                 onClick={() => setActive(cat)}
                 className="cursor-pointer"
                 size="sm"
@@ -117,10 +114,7 @@ export default function Home() {
 
         {visibleCount < filteredBlogs.length && (
           <div className="mt-6 text-center">
-            <Button
-              className="cursor-pointer"
-              onClick={() => setVisibleCount((prev) => prev + 6)}
-            >
+            <Button className="cursor-pointer" onClick={() => setVisibleCount((prev) => prev + 6)}>
               Load More
             </Button>
           </div>

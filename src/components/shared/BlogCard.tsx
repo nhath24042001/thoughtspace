@@ -1,17 +1,13 @@
-"use client";
+'use client';
 
-import Image from "next/image";
-import { motion } from "framer-motion";
-import Link from "next/link";
+import Image from 'next/image';
+import { motion } from 'framer-motion';
+import Link from 'next/link';
 
-import { IBlog } from "@/types/blog";
-import { formatDate } from "@/utils/format";
-import { getCategoryColor } from "@/utils/style";
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipTrigger,
-} from "@/components/ui/tooltip";
+import { IBlog } from '@/types/blog';
+import { formatDate } from '@/utils/format';
+import { getCategoryColor } from '@/utils/style';
+import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip';
 
 export default function BlogCard({ blog }: { blog: IBlog }) {
   return (
@@ -36,15 +32,13 @@ export default function BlogCard({ blog }: { blog: IBlog }) {
         <div className="flex items-center justify-between">
           <span
             className={`font-medium text-sm gap-1 px-2 py-1 rounded w-fit ${getCategoryColor(
-              blog.category.name
+              blog.category.name,
             )}`}
           >
             {blog.category.name}
           </span>
 
-          <span className="text-sm text-gray-500 font-medium">
-            {formatDate(blog.createdAt)}
-          </span>
+          <span className="text-sm text-gray-500 font-medium">{formatDate(blog.createdAt)}</span>
         </div>
         <Tooltip>
           <TooltipTrigger asChild>
@@ -64,7 +58,7 @@ export default function BlogCard({ blog }: { blog: IBlog }) {
         <div className="flex items-center justify-between mt-2">
           <div className="flex items-center gap-2">
             <Image
-              src={blog.author.image ?? "/default-avatar.png"}
+              src={blog.author.image ?? '/default-avatar.png'}
               alt="author-avatar"
               width={32}
               height={32}
@@ -76,9 +70,7 @@ export default function BlogCard({ blog }: { blog: IBlog }) {
           </div>
 
           <Link href={`/blog/${blog.slug}`}>
-            <span className="text-black font-medium text-sm cursor-pointer">
-              Read more
-            </span>
+            <span className="text-black font-medium text-sm cursor-pointer">Read more</span>
           </Link>
         </div>
       </div>

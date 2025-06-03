@@ -1,11 +1,11 @@
-import "./globals.css";
-import type { Metadata } from "next";
-import { ThemeProvider } from "@/components/themes/theme-provider";
-import { Header } from "@/components/shared/Header";
+import './globals.css';
+import type { Metadata } from 'next';
+import { ThemeProvider } from '@/components/themes/theme-provider';
+import { Header } from '@/components/shared/Header';
 
 export const metadata: Metadata = {
-  title: "Thought Space",
-  description: "A place to think, write, and reflect",
+  title: 'Thought Space',
+  description: 'A place to think, write, and reflect',
 };
 
 export default function RootLayout({

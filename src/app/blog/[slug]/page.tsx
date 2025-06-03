@@ -1,10 +1,10 @@
-import { allBlogs } from "contentlayer/generated";
-import { notFound } from "next/navigation";
-import Image from "next/image";
+import { allBlogs } from 'contentlayer/generated';
+import { notFound } from 'next/navigation';
+import Image from 'next/image';
 
-import { MDXContent } from "@/components/shared/mdx-content";
-import ReadingProgress from "@/components/shared/reading-progress";
-import BlogTOC from "@/components/shared/blog-toc";
+import { MDXContent } from '@/components/shared/mdx-content';
+import ReadingProgress from '@/components/shared/reading-progress';
+import BlogTOC from '@/components/shared/blog-toc';
 
 interface PageProps {
   params: Promise<{ slug: string }>;
