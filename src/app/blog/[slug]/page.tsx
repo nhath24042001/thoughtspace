@@ -1,6 +1,7 @@
 import { allBlogs } from 'contentlayer/generated';
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
+import { NextSeo } from 'next-seo';
 
 import { MDXContent } from '@/components/shared/mdx-content';
 import ReadingProgress from '@/components/shared/reading-progress';
@@ -20,6 +21,20 @@ export default async function Page({ params }: PageProps) {
   if (!post) return notFound();
   return (
     <>
+      <NextSeo
+        title={post.title}
+        description={post.excerpt}
+        openGraph={{
+          url: `https://qkit.dev/blog/${post.slug}`,
+          title: post.title,
+          description: post.excerpt,
+          images: [
+            {
+              url: `https://qkit.dev/og/${post.slug}.png`,
+            },
+          ],
+        }}
+      />
       <ReadingProgress />
 
       <div className="flex justify-center px-4 py-10">

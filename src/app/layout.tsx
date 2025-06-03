@@ -1,12 +1,9 @@
 import './globals.css';
-import type { Metadata } from 'next';
+import { DefaultSeo } from 'next-seo';
+
 import { ThemeProvider } from '@/components/themes/theme-provider';
 import { Header } from '@/components/shared/Header';
-
-export const metadata: Metadata = {
-  title: 'Thought Space',
-  description: 'A place to think, write, and reflect',
-};
+import defaultSEO from '../../next-seo.config';
 
 export default function RootLayout({
   children,
@@ -18,6 +15,7 @@ export default function RootLayout({
       <body className="text-black dark:text-white transition-colors duration-300 ease-in-out">
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <Header />
+          <DefaultSeo {...defaultSEO} />
           {children}
         </ThemeProvider>
       </body>
