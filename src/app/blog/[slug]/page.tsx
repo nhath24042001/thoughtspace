@@ -21,20 +21,33 @@ export default async function Page({ params }: PageProps) {
   return (
     <>
       <ReadingProgress />
-      <div className="container mx-auto px-4 py-10 max-w-4xl">
-        <h1 className="text-4xl text-center font-bold mb-2">{post.title}</h1>
-        <Image
-          src={post.image}
-          width={864}
-          height={200}
-          className="mt-5 object-cover rounded-lg mb-6"
-          alt="blog_img"
-        />
-        <div className="flex flex-col md:flex-row gap-10">
-          <div className="flex-1 prose prose-lg dark:prose-invert">
+
+      <div className="flex justify-center px-4 py-10">
+        <div className="w-full max-w-5xl">
+          <h1 className="text-4xl text-center font-bold mb-2">{post.title}</h1>
+          <Image
+            src={post.image}
+            width={1024}
+            height={200}
+            className="mt-5 object-cover rounded-lg mb-6"
+            alt="blog_img"
+          />
+          <div className="prose prose-lg dark:prose-invert">
+            {post.tags?.length &&
+              post.tags.map((tag) => (
+                <span
+                  key={tag}
+                  className="inline-block bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300 mb-2"
+                >
+                  {tag}
+                </span>
+              ))}
             <MDXContent code={post.body.code} />
           </div>
-          <div className="w-64 hidden md:block">
+        </div>
+
+        <aside className="hidden lg:block w-64 ml-10 shrink-0">
+          <div className="sticky top-24">
             <div className="mb-5 pb-3 flex items-center border-b">
               <Image
                 src={post.author.avatar}
@@ -50,7 +63,7 @@ export default async function Page({ params }: PageProps) {
             </div>
             <BlogTOC />
           </div>
-        </div>
+        </aside>
       </div>
     </>
   );

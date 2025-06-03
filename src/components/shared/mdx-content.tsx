@@ -7,7 +7,7 @@ type Props<T extends keyof JSX.IntrinsicElements> =
 
 const mdxComponents = {
   h2: (props: Props<"h2">) => (
-    <h2 className="text-2xl font-bold mt-10 mb-4" {...props} />
+    <h2 className="text-2xl font-bold mt-5 mb-4" {...props} />
   ),
   h3: (props: Props<"h3">) => (
     <h3 className="text-xl font-semibold mt-6 mb-2" {...props} />
@@ -36,7 +36,7 @@ const mdxComponents = {
 export function MDXContent({ code }: { code: string }) {
   const Component = useMDXComponent(code);
   return (
-    <article className="max-w-none">
+    <article id="blog-content" className="max-w-none">
       <Component components={mdxComponents} />
     </article>
   );
