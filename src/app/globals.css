@@ -1,5 +1,5 @@
-@import "tailwindcss";
-@import "tw-animate-css";
+@import 'tailwindcss';
+@import 'tw-animate-css';
 @import 'prism-themes/themes/prism-vsc-dark-plus.css';
 
 @custom-variant dark (&:is(.dark *));

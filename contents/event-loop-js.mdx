@@ -1,15 +1,15 @@
 ---
-title: "Mastering the JavaScript Event Loop"
-image: "https://miro.medium.com/v2/resize:fit:720/format:webp/0*vVsia7i4DvG_uGik.png"
-description: "Understand how the event loop works, including the call stack, task queue, and microtasks."
-slug: "event-loop-js"
-date: "2025-06-03"
+title: 'Mastering the JavaScript Event Loop'
+image: 'https://miro.medium.com/v2/resize:fit:720/format:webp/0*vVsia7i4DvG_uGik.png'
+description: 'Understand how the event loop works, including the call stack, task queue, and microtasks.'
+slug: 'event-loop-js'
+date: '2025-06-03'
 author:
-  name: "Nhat Huy"
-  title: "Frontend Developer"
-  avatar: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YXZhdGFyfGVufDB8fDB8fHww"
-  url: "https://zacharysmith.dev"
-tags: ["event loop", "javascript", "async", "microtasks"]
+  name: 'Nhat Huy'
+  title: 'Frontend Developer'
+  avatar: 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YXZhdGFyfGVufDB8fDB8fHww'
+  url: 'https://zacharysmith.dev'
+tags: ['event loop', 'javascript', 'async', 'microtasks']
 excerpt: "The event loop is the core of JavaScript's concurrency model. Learn how it handles tasks and async code."
 readingTime: 6 min
 ---
@@ -32,3 +32,4 @@ setTimeout(() => console.log('2'), 0);
 Promise.resolve().then(() => console.log('3'));
 
 console.log('4');
+```
