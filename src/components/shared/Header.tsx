@@ -52,7 +52,7 @@ export const Header = () => {
           </Button>
 
           <Button className="text-sm cursor-pointer" asChild>
-            <Link href="/auth/register">Sign Up</Link>
+            <Link href="/auth/signup">Sign Up</Link>
           </Button>
         </div>
       </div>
